@@ -1,0 +1,182 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW - Catálogo Exclusivo</title>
+    <style>
+       
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #ddd;
+            text-align: center;
+        }
+
+       
+        .titulo {
+            background: linear-gradient(to right, #1c1c1c, #000000);
+            color: #d4af37;
+            padding: 30px;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 6px rgba(212, 175, 55, 0.5);
+        }
+
+       
+        .catalogo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+        }
+
+       
+        .auto {
+            background: #1c1c1c;
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .auto:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .auto img {
+            width: 100%;
+            border-radius: 10px;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .auto b {
+            display: block;
+            margin-top: 10px;
+            font-size: 20px;
+            color: #f1f1f1;
+        }
+
+       
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 75vh;
+            border-radius: 10px;
+            border: 3px solid #d4af37;
+        }
+
+        .modal-content {
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #d4af37;
+            color: #121212;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            background: #b8922a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="titulo">BMW - Catálogo Exclusivo</div>
+    <p>Descubre la excelencia de BMW: tecnología, lujo y alto rendimiento.</p>
+
+    <div class="catalogo">
+        <div class="auto" onclick="openModal('bmwserie3.jpg', 'BMW Serie 3', 'Motor: 2.0L Turbo (4 cilindros) <br> Potencia: 255 HP <br> Transmisión: Automática (8 velocidades)')">
+            <img src="bmwserie3.jpg" alt="BMW Serie 3">
+            <b>BMW Serie 3</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwserie5.jpg', 'BMW Serie 5', 'Motor: 3.0L Turbo (6 cilindros) <br> Potencia: 335 HP <br> Interiores de lujo y navegación avanzada')">
+            <img src="bmwserie5.jpg" alt="BMW Serie 5">
+            <b>BMW Serie 5</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwx3.jpg', 'BMW X3', 'Motor: 2.0L Turbo (4 cilindros) <br> Potencia: 248 HP <br> Tracción integral xDrive')">
+            <img src="bmwx3.jpg" alt="BMW X3">
+            <b>BMW X3</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwx5.jpg', 'BMW X5', 'Motor: 3.0L Turbo (6 cilindros) <br> Potencia: 335 HP <br> Asistencia de conducción semiautónoma')">
+            <img src="bmwx5.jpg" alt="BMW X5">
+            <b>BMW X5</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwz4.jpg', 'BMW Z4', 'Motor: 2.0L Turbo (4 cilindros) <br> Potencia: 255 HP <br> Convertible con techo eléctrico')">
+            <img src="bmwz4.jpg" alt="BMW Z4">
+            <b>BMW Z4</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwm3.jpg', 'BMW M3', 'Motor: 3.0L Twin-Turbo (6 cilindros) <br> Potencia: 473 HP <br> Suspensión deportiva adaptativa')">
+            <img src="bmwm3.jpg" alt="BMW M3">
+            <b>BMW M3</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwi4.jpg', 'BMW i4', 'Motor: 100% eléctrico <br> Autonomía: 475 km <br> 0-100 km/h en 3.9 seg')">
+            <img src="bmwi4.jpg" alt="BMW i4">
+            <b>BMW i4</b>
+        </div>
+
+        <div class="auto" onclick="openModal('bmwix.jpg', 'BMW iX', 'Motor: 100% eléctrico <br> Autonomía: 520 km <br> Sonido envolvente premium')">
+            <img src="bmwix.jpg" alt="BMW iX">
+            <b>BMW iX</b>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <img id="modal-img">
+        <div id="modal-content" class="modal-content"></div>
+        <button class="close-btn" onclick="closeModal()">Cerrar</button>
+    </div>
+
+    <script>
+        function openModal(imageSrc, title, description) {
+            document.getElementById("modal-img").src = imageSrc;
+            document.getElementById("modal-content").innerHTML = "<b>" + title + "</b><br>" + description;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

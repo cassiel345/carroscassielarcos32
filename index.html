@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo de Autos</title>
+    <script>
+        function clearFrame() {
+            document.querySelector('iframe[name="contentFrame"]').src = "menu.html"; // Página de inicio o predeterminada
+        }
+    </script>
+</head>
+<body>
+
+    <table width="100%" border="0">
+        <tr>
+            <td width="150" align="center">
+                <img src="izquierda.jpg" alt="Imagen Izquierda" width="100" height="100">
+            </td>
+            <td align="center">
+                <h1>Catalogo de Autos</h1>
+            </td>
+            <td width="150" align="center">
+                <img src="derecha.jpg" alt="Imagen Derecha" width="100" height="100">
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" height="600" border="1">
+        <tr>
+            <td width="200" valign="top">
+                <ul>
+                    <li><a href="bmw.html" target="contentFrame">BMW</a></li>
+                    <li><a href="acura.html" target="contentFrame">Acura</a></li>
+                    <li><a href="honda.html" target="contentFrame">Honda</a></li>
+                    <li><a href="toyota.html" target="contentFrame">Toyota</a></li>
+                    <li><a href="Ford.html" target="contentFrame">Ford</a></li>
+                    <li><a href="Mustang.html" target="contentFrame">Musgtang</a></li>
+                    <li><a href="Mercedes.html" target="contentFrame">Mercedes</a></li>
+                    <li><a href="Nissan.html" target="contentFrame">Nissan</a></li>
+                </ul>
+            </td>
+            <td valign="top">
+                <iframe name="contentFrame" src="menu.html" width="100%" height="600"></iframe>
+                <div>
+                    <button onclick="clearFrame()">Regresar</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
